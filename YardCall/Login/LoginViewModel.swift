@@ -14,8 +14,11 @@ class LoginViewModel: ObservableObject {
 //    @Published var lastname = ""
 //    @Published var email = ""
     @Published var isLoggedIn = false
-    @Published var errorMessage: String? = nil
+    @Published var isCreated = false
+    @Published var errorMessage: String?
     @Published var shouldNavigateToDashboard = false
+    @Published var shouldNavigateToOnboarding = false
+    @Published var currentUser: User?
     
     func login(username: String, password: String) {
         guard !username.isEmpty else {
@@ -27,11 +30,21 @@ class LoginViewModel: ObservableObject {
             return
         }
 
-        let user = User(username: username, password: password, firstname: nil, lastname: nil, email: nil)
-        LoginModel.validate(user: user) { isValid in
+        var user = User(username: username, password: password, firstname: nil, lastname: nil, email: nil)
+        LoginModel.validate(user: &user) { isValid, mutableUser in
             if isValid == true {
                 self.isLoggedIn = true
+                self.currentUser = mutableUser
+                //self.dashboardViewModel.setCurrentUser(user: self.currentUser!)
+                print("------HERE LoginViewModel------")
+                print(self.currentUser?.firstname)
+                print(self.currentUser?.lastname)
+                print(self.currentUser?.email)
                 self.shouldNavigateToDashboard = true
+                print("------HERE LoginViewModel 2------")
+                print(self.currentUser?.firstname)
+                print(self.currentUser?.lastname)
+                print(self.currentUser?.email)
             } else {
                 self.errorMessage = "Incorrect username or password"
             }
@@ -61,6 +74,13 @@ class LoginViewModel: ObservableObject {
         }
         
         let newUser = User(username: username, password: password, firstname: firstname, lastname: lastname, email: email)
-        LoginModel.createAccount(user: newUser)
+        LoginModel.createAccount(user: newUser) { isValid in
+            if isValid == true {
+                self.isCreated = true
+                self.shouldNavigateToOnboarding = true
+            } else {
+                self.errorMessage = "Unable to create account."
+            }
+        }
     }
 }

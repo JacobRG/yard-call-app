@@ -76,7 +76,7 @@ struct LoginView: View {
                                 .cornerRadius(10)
                                 .padding(.bottom, 20)
                             
-                            NavigationLink(destination: DashboardView(), isActive: $viewModel.shouldNavigateToDashboard) {
+                            NavigationLink(destination: OnboardingView(), isActive: $viewModel.shouldNavigateToOnboarding) {
                                 EmptyView()
                             }
 
@@ -92,7 +92,7 @@ struct LoginView: View {
                         default:
                             EmptyView()
                             
-                            NavigationLink(destination: DashboardView(), isActive: $viewModel.shouldNavigateToDashboard) {
+                            NavigationLink(destination: DashboardView(viewModel: DashboardViewModel()), isActive: $viewModel.shouldNavigateToDashboard) {
                                 EmptyView()
                             }
                             

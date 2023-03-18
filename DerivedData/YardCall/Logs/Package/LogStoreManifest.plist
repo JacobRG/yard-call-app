@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>30FC5FDB-8648-481F-8702-C1276771EF7B</key>
+		<key>28E25EDF-BC1E-49B3-9A4E-2A54A23348C4</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.PackageLog</string>
 			<key>fileName</key>
-			<string>30FC5FDB-8648-481F-8702-C1276771EF7B.xcactivitylog</string>
+			<string>28E25EDF-BC1E-49B3-9A4E-2A54A23348C4.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -24,43 +24,15 @@
 				<string>S</string>
 			</dict>
 			<key>signature</key>
-			<string>Add Package</string>
-			<key>timeStartedRecording</key>
-			<real>700693405.11913705</real>
-			<key>timeStoppedRecording</key>
-			<real>700693625.07348204</real>
-			<key>title</key>
-			<string>Add Package</string>
-			<key>uniqueIdentifier</key>
-			<string>30FC5FDB-8648-481F-8702-C1276771EF7B</string>
-		</dict>
-		<key>F36A7D37-A106-4DF2-A12A-86595EBCEE20</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.PackageLog</string>
-			<key>fileName</key>
-			<string>F36A7D37-A106-4DF2-A12A-86595EBCEE20.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>W</string>
-			</dict>
-			<key>signature</key>
 			<string>Resolve Packages</string>
 			<key>timeStartedRecording</key>
-			<real>700693776.31945801</real>
+			<real>700861066.18352401</real>
 			<key>timeStoppedRecording</key>
-			<real>700693797.23465002</real>
+			<real>700861107.064116</real>
 			<key>title</key>
 			<string>Resolve Packages</string>
 			<key>uniqueIdentifier</key>
-			<string>F36A7D37-A106-4DF2-A12A-86595EBCEE20</string>
+			<string>28E25EDF-BC1E-49B3-9A4E-2A54A23348C4</string>
 		</dict>
 	</dict>
 </dict>
