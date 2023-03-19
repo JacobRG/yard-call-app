@@ -18,7 +18,7 @@ class LoginViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var shouldNavigateToDashboard = false
     @Published var shouldNavigateToOnboarding = false
-    @Published var currentUser: User?
+    @Published var currentUser = User(username: "johndoe", password: "password", firstname: "John", lastname: "Doe", email: "johndoe@example.com")
     
     func login(username: String, password: String) {
         guard !username.isEmpty else {
@@ -34,17 +34,17 @@ class LoginViewModel: ObservableObject {
         LoginModel.validate(user: &user) { isValid, mutableUser in
             if isValid == true {
                 self.isLoggedIn = true
-                self.currentUser = mutableUser
+                self.currentUser = mutableUser!
                 //self.dashboardViewModel.setCurrentUser(user: self.currentUser!)
                 print("------HERE LoginViewModel------")
-                print(self.currentUser?.firstname)
-                print(self.currentUser?.lastname)
-                print(self.currentUser?.email)
+                print(self.currentUser.firstname)
+                print(self.currentUser.lastname)
+                print(self.currentUser.email)
                 self.shouldNavigateToDashboard = true
                 print("------HERE LoginViewModel 2------")
-                print(self.currentUser?.firstname)
-                print(self.currentUser?.lastname)
-                print(self.currentUser?.email)
+                print(self.currentUser.firstname)
+                print(self.currentUser.lastname)
+                print(self.currentUser.email)
             } else {
                 self.errorMessage = "Incorrect username or password"
             }

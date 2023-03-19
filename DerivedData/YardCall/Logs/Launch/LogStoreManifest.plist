@@ -996,6 +996,96 @@
 			<key>uniqueIdentifier</key>
 			<string>C472E867-E036-4C80-99EC-4AB17B5392B6</string>
 		</dict>
+		<key>D3845D88-2AE8-4BB2-B8A0-0C663E44E7F6</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>67F2A903-EB3C-491D-BEB4-C6DF80D9859A</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-YardCall-2023.03.18_18-46-10--0400.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>YardCall project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>YardCall</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run YardCall</string>
+			<key>timeStartedRecording</key>
+			<real>700872370.76837206</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run YardCall</string>
+			<key>uniqueIdentifier</key>
+			<string>D3845D88-2AE8-4BB2-B8A0-0C663E44E7F6</string>
+		</dict>
+		<key>D3DC2A20-2730-4368-81CD-2DB35ACC4FD8</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>E82433A1-F5AC-4408-94AC-760B088794B6</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-YardCall-2023.03.18_18-31-20--0400.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>YardCall project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>YardCall</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run YardCall</string>
+			<key>timeStartedRecording</key>
+			<real>700871480.20818806</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run YardCall</string>
+			<key>uniqueIdentifier</key>
+			<string>D3DC2A20-2730-4368-81CD-2DB35ACC4FD8</string>
+		</dict>
 		<key>DD02FE0E-D59B-45C8-AFA2-D1966587938E</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>

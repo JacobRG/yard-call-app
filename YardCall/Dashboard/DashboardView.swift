@@ -21,7 +21,7 @@ struct DashboardView: View {
                     .resizable()
                     .frame(width: pictureSize, height: pictureSize)
                 
-                Text("Hello, \(viewModel.getFirstName(user: loginViewModel.currentUser!))")
+                Text("Hello, \(viewModel.getFirstName(user: loginViewModel.currentUser))")
                     .font(.title2)
                 Spacer()
             }.padding()
