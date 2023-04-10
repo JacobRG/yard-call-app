@@ -9,31 +9,42 @@ import SwiftUI
 import Foundation
 
 struct DashboardView: View {
-    @ObservedObject var viewModel = DashboardViewModel()
-    @ObservedObject var loginViewModel = LoginViewModel()
+    //@StateObject var sessionManager = SessionManager()
+    @StateObject var viewModel = DashboardViewModel()
+    @ObservedObject var authLoginViewModel = AuthLoginViewModel()
+    @ObservedObject var firestoreManager = FirestoreManager()
     @State private var pictureSize = 35.0
-    //@State private var currentUser: User
+    private var user: User?
+    private var email = AuthLoginView().email
+    
+    @EnvironmentObject var dataManager: DataManager
     
     var body: some View {
-        VStack {
-            HStack {
-                Image(systemName: "person.circle")
-                    .resizable()
-                    .frame(width: pictureSize, height: pictureSize)
-                
-                Text("Hello, \(viewModel.getFirstName(user: loginViewModel.currentUser))")
-                    .font(.title2)
-                Spacer()
-            }.padding()
-            Spacer()
+        NavigationView {
+                VStack {
+                    HStack {
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .frame(width: pictureSize, height: pictureSize)
+                        
+                        Text("Hello, \(dataManager.user.firstname)")
+                            .font(.title2)
+                        
+                        Spacer()
+                    }
+                    .padding()
+                    
+                    Spacer()
+                }
         }
         .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true) // hides the back button
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         DashboardView()
+            .environmentObject(DataManager())
     }
 }

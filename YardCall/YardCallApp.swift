@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
@@ -21,13 +22,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct YardCall: App {
+    @StateObject var dataManager = DataManager()
+    
+    
   // register app delegate for Firebase setup
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
   var body: some Scene {
     WindowGroup {
       NavigationView {
-        LoginView()
+        AuthLoginView()
       }
     }
   }

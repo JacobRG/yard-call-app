@@ -1,86 +1,84 @@
+////
+////  LoginViewModel.swift
+////  YardCall
+////
+////  Created by Jacob Gambrell on 3/15/23.
+////
 //
-//  LoginViewModel.swift
-//  YardCall
+//import Foundation
 //
-//  Created by Jacob Gambrell on 3/15/23.
+//class LoginViewModel: ObservableObject {
+//    //    @Published var username = ""
+//    //    @Published var password = ""
+//    //    @Published var firstname = ""
+//    //    @Published var lastname = ""
+//    //    @Published var email = ""
+//    @Published var isLoggedIn = false
+//    @Published var isCreated = false
+//    @Published var errorMessage: String?
+//    @Published var shouldNavigateToDashboard = false
+//    @Published var shouldNavigateToOnboarding = false
+//    @Published var currentUser = User(id: "johndoe123", firstname: "john", lastname: "Doe", email: "johndoe@example.com", username: "johndoe", password: "password")
 //
-
-import Foundation
-
-class LoginViewModel: ObservableObject {
-//    @Published var username = ""
-//    @Published var password = ""
-//    @Published var firstname = ""
-//    @Published var lastname = ""
-//    @Published var email = ""
-    @Published var isLoggedIn = false
-    @Published var isCreated = false
-    @Published var errorMessage: String?
-    @Published var shouldNavigateToDashboard = false
-    @Published var shouldNavigateToOnboarding = false
-    @Published var currentUser = User(username: "johndoe", password: "password", firstname: "John", lastname: "Doe", email: "johndoe@example.com")
-    
-    func login(username: String, password: String) {
-        guard !username.isEmpty else {
-            errorMessage = "Please enter a username."
-            return
-        }
-        guard !password.isEmpty else {
-            errorMessage = "Please enter a password."
-            return
-        }
-
-        var user = User(username: username, password: password, firstname: nil, lastname: nil, email: nil)
-        LoginModel.validate(user: &user) { isValid, mutableUser in
-            if isValid == true {
-                self.isLoggedIn = true
-                self.currentUser = mutableUser!
-                //self.dashboardViewModel.setCurrentUser(user: self.currentUser!)
-                print("------HERE LoginViewModel------")
-                print(self.currentUser.firstname)
-                print(self.currentUser.lastname)
-                print(self.currentUser.email)
-                self.shouldNavigateToDashboard = true
-                print("------HERE LoginViewModel 2------")
-                print(self.currentUser.firstname)
-                print(self.currentUser.lastname)
-                print(self.currentUser.email)
-            } else {
-                self.errorMessage = "Incorrect username or password"
-            }
-        }
-    }
-    
-    func createAccount(username: String, password: String, firstname: String, lastname: String, email: String) {
-        guard !username.isEmpty else {
-            errorMessage = "Please enter a username."
-            return
-        }
-        guard !password.isEmpty else {
-            errorMessage = "Please enter a password."
-            return
-        }
-        guard !firstname.isEmpty else {
-            errorMessage = "Please enter your first name."
-            return
-        }
-        guard !lastname.isEmpty else {
-            errorMessage = "Please enter your last name."
-            return
-        }
-        guard !email.isEmpty else {
-            errorMessage = "Please enter your email."
-            return
-        }
-        
-        let newUser = User(username: username, password: password, firstname: firstname, lastname: lastname, email: email)
-        LoginModel.createAccount(user: newUser) { isValid in
-            if isValid == true {
-                self.isCreated = true
-                self.shouldNavigateToOnboarding = true
-            } else {
-                self.errorMessage = "Unable to create account."
-            }
-        }
-    }
-}
+//
+//    //private let sessionManager = SessionManager()
+//
+//    func login(email: String, password: String) {
+//        guard !email.isEmpty else {
+//            errorMessage = "Please enter a username."
+//            return
+//        }
+//        guard !password.isEmpty else {
+//            errorMessage = "Please enter a password."
+//            return
+//        }
+//
+//        let loginModel = LoginModel()
+//        let sessionManager = SessionManager(loginModel: loginModel)
+//        sessionManager.login(username: email, password: password) { result in
+//            switch result {
+//            case .success(let user):
+//                //print("Logged in as \(user.email)")
+//                self.shouldNavigateToDashboard = true
+//                self.currentUser = user
+//            case .failure(let error):
+//                print("Login failed with error: \(error.localizedDescription)")
+//                self.errorMessage = "Incorrect username or password"
+//            }
+//        }
+//    }
+//
+//    func createAccount(username: String, password: String, firstname: String, lastname: String, email: String) {
+//        guard !username.isEmpty else {
+//            errorMessage = "Please enter a username."
+//            return
+//        }
+//        guard !password.isEmpty else {
+//            errorMessage = "Please enter a password."
+//            return
+//        }
+//        guard !firstname.isEmpty else {
+//            errorMessage = "Please enter your first name."
+//            return
+//        }
+//        guard !lastname.isEmpty else {
+//            errorMessage = "Please enter your last name."
+//            return
+//        }
+//        guard !email.isEmpty else {
+//            errorMessage = "Please enter your email."
+//            return
+//        }
+//
+//        let id = UUID().uuidString
+//        let newUser = User(id: id, firstname: firstname, lastname: lastname, email: email, username: username, password: password)
+//        FirebaseManager.shared.createUser(user: newUser) { error in
+//            if let error = error {
+//                self.errorMessage = "Unable to create account: \(error.localizedDescription)"
+//            } else {
+//                self.isCreated = true
+//                self.shouldNavigateToOnboarding = true
+//            }
+//        }
+//    }
+//}

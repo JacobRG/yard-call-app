@@ -9,26 +9,21 @@ import Foundation
 import Combine
 
 class DashboardViewModel: ObservableObject {
-    @Published var currentUser = User(username: "johndoe", password: "password", firstname: "John", lastname: "Doe", email: "johndoe@example.com")
-    @Published var firstname = "John"
-    @Published var lastname = "Doe"
+    @Published var currentUser = User(id: "johndoe", firstname: "John", lastname: "Doe", email: "johndoe@example.com", username: "johndoe", password: "password")
+    private let firestoreManager = FirestoreManager()
+    //private var email = AuthLoginView().email
     
-    func getFirstName(user: User) -> String {
-        setCurrentUser(user: user)
-        return firstname
-    }
-    
-    func setCurrentUser(user: User) {
-        currentUser = user
-        if let firstname = currentUser.firstname {
-            self.firstname = firstname
+    func fetchUser(email: String) async throws {
+        do {
+            guard let user = await firestoreManager.fetchUser(email: email) else { return }
+            DispatchQueue.main.async {
+                print("right after")
+                self.currentUser = user
+                print("DashboardViewModel: \(self.currentUser.firstname)")
+            }
+        } catch {
+            print("Error getting documents: \(error)")
         }
-        if let lastname = currentUser.lastname {
-            self.lastname = lastname
-        }
-        print("------HERE DashboardViewModel------")
-        print(firstname)
-        print(lastname)
     }
 }
 
