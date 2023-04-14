@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @EnvironmentObject var user: UserViewModel
+    
     var body: some View {
         ZStack {
             Color.gray.opacity(0.12).ignoresSafeArea()
@@ -15,7 +17,7 @@ struct OnboardingView: View {
                 Spacer()
                 Image("yardWork")
                     .resizable()
-                    .frame(width: .infinity, height: 175)
+                    .frame(height: 175)
                     .ignoresSafeArea()
             }
             
@@ -27,29 +29,41 @@ struct OnboardingView: View {
                 }
                 
                 HStack(spacing: 5) {
-                    VStack(spacing: 15) {
-                        Image("lawnBlock")
-                            .resizable()
-                            .frame(width: 110, height: 110)
-                        
-                        Text("Owner")
-                            .font(.title)
-                    }
-                    .padding(32)
-                    .padding(.vertical, 65)
-                    .background(Color.gray.opacity(0.12)).cornerRadius(15)
+                    Button(action: {
+                        user.user?.role = "owner"
+                        user.update(/*user: user.user!*/)
+                    }, label: {
+                        VStack(spacing: 15) {
+                            Image("lawnBlock")
+                                .resizable()
+                                .frame(width: 110, height: 110)
+                            
+                            Text("Owner")
+                                .font(.title)
+                                .foregroundColor(Color.black)
+                        }
+                        .padding(32)
+                        .padding(.vertical, 65)
+                        .background(Color.gray.opacity(0.12)).cornerRadius(15)
+                    })
                     
-                    VStack(spacing: 15) {
-                        Image("lawnMower")
-                            .resizable()
-                            .frame(width: 110, height: 110)
-                        
-                        Text("Mower")
-                            .font(.title)
-                    }
-                    .padding(32)
-                    .padding(.vertical, 65)
-                    .background(Color.gray.opacity(0.12)).cornerRadius(15)
+                    Button(action: {
+                        user.user?.role = "mower"
+                        user.update(/*user: user.user!*/)
+                    }, label: {
+                        VStack(spacing: 15) {
+                            Image("lawnMower")
+                                .resizable()
+                                .frame(width: 110, height: 110)
+                            
+                            Text("Mower")
+                                .font(.title)
+                                .foregroundColor(Color.black)
+                        }
+                        .padding(32)
+                        .padding(.vertical, 65)
+                        .background(Color.gray.opacity(0.12)).cornerRadius(15)
+                    })
                 }
                 //.padding()
                 Spacer()

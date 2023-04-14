@@ -9,76 +9,121 @@ import SwiftUI
 import Firebase
 
 struct AuthLoginView: View {
-    @ObservedObject var viewModel = AuthLoginViewModel()
-    //@ObservedObject var sessionManager = SessionManager()
-    @State var email = ""
-    @State var password = ""
-    @State var user: User?
-    @State private var userIsLoggedIn = false
-    
-    @EnvironmentObject var dataManager: DataManager
+    var body: some View {
+        SignInView()
+    }
+}
+
+struct SignInView: View {
+    @EnvironmentObject var user: UserViewModel
+    @State private var email: String = ""
+    @State private var password: String = ""
     
     var body: some View {
-        if userIsLoggedIn {
-            LoadingView()
-                .environmentObject(DataManager())
-        } else {
-            content
-        }
-    }
-    
-    var content: some View {
         ZStack {
-            Color.blue
+            Color(.lightGray).opacity(0.2).ignoresSafeArea()
             
             VStack {
-                TextField("Email", text: $email)
-                    .autocapitalization(.none)
-                SecureField("Password", text: $password)
-                    .autocapitalization(.none)
+                VStack(spacing: 20) {
+                    Text("Welcome")
+                    TextField("Email", text: $email)
+                        .frame(width: 250, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .autocapitalization(.none)
+                    SecureField("Password", text: $password)
+                        .frame(width: 250, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .autocapitalization(.none)
+                }
+                .padding()
                 
                 Button("Sign in") {
-                    login()//user = viewModel.login(email: email, password: password)
+                    user.signIn(email: email, password: password)
                 }
+                .frame(width: 250, height: 50)
+                .background(Color.blue)
+                .cornerRadius(12)
+                .foregroundColor(Color.white)
+                .padding()
                 
-                Button("Already have an account? Login") {
-                    register()
-                }
                 
-//                NavigationLink(destination: DashboardView()/*.environmentObject(SessionManager())*/, isActive: $viewModel.shouldNavigateToDashboard) {
-//                    EmptyView()
-//                }
-                
-            }
-            .padding()
-            .onAppear {
-                Auth.auth().addStateDidChangeListener { auth, user in
-                    if user != nil {
-                        userIsLoggedIn.toggle()
-                    }
+                NavigationLink(destination: SignUpView()) {
+                    Text("Don't have an account? Sign up").foregroundColor(Color.gray)
                 }
             }
+            .frame(width: 350, height: 380)
+            .background(Color.white)
+            .cornerRadius(25)
         }
     }
+}
+
+struct SignUpView: View {
+    @EnvironmentObject var user: UserViewModel
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var firstname: String = ""
+    @State private var lastname: String = ""
+    @State private var username: String = ""
     
-    func login() {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error!.localizedDescription)
+    var body: some View {
+        ZStack {
+            Color(.lightGray).opacity(0.2).ignoresSafeArea()
+            
+            VStack {
+                VStack(spacing: 20) {
+                    Text("Sign Up")
+                    TextField("First name", text: $firstname)
+                        .frame(width: 250, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .disableAutocorrection(true)
+                    TextField("Last Name", text: $lastname)
+                        .frame(width: 250, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .disableAutocorrection(true)
+                    TextField("Email", text: $email)
+                        .frame(width: 250, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                    TextField("Username", text: $username)
+                        .frame(width: 250, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                    SecureField("Password", text: $password)
+                        .frame(width: 250, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                }
+                .padding()
+                
+                Button("Sign up") {
+                    user.signUp(email: email, firstName: firstname, lastName: lastname, username: username, password: password)
+                }
+                .frame(width: 250, height: 50)
+                .background(Color.blue)
+                .cornerRadius(12)
+                .foregroundColor(Color.white)
+                .padding()
             }
-        }
-    }
-    
-    func register() {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            print(error!.localizedDescription)
+            .frame(width: 350, height: 580)
+            .background(Color.white)
+            .cornerRadius(25)
         }
     }
 }
 
 struct AuthLoginView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthLoginView()
-            .environmentObject(DataManager())
+        SignInView()
     }
 }

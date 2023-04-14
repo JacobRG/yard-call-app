@@ -21,18 +21,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 
 @main
-struct YardCall: App {
-    @StateObject var dataManager = DataManager()
-    
-    
-  // register app delegate for Firebase setup
-  @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+struct YardCall: App {    
+    // register app delegate for Firebase setup
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
-  var body: some Scene {
-    WindowGroup {
-      NavigationView {
-        AuthLoginView()
-      }
+    var body: some Scene {
+        WindowGroup {
+            let user = UserViewModel()
+            ContentView()
+                .environmentObject(user)
+        }
     }
-  }
 }
