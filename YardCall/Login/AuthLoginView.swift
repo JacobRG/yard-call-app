@@ -21,19 +21,21 @@ struct SignInView: View {
     
     var body: some View {
         ZStack {
-            Color(.lightGray).opacity(0.2).ignoresSafeArea()
+            Color.background.ignoresSafeArea()
             
             VStack {
                 VStack(spacing: 20) {
                     Text("Welcome")
                     TextField("Email", text: $email)
+                        .padding()
                         .frame(width: 250, height: 50)
-                        .background(Color.white)
+                        .background(Color.background)
                         .cornerRadius(12)
                         .autocapitalization(.none)
                     SecureField("Password", text: $password)
+                        .padding()
                         .frame(width: 250, height: 50)
-                        .background(Color.white)
+                        .background(Color.background)
                         .cornerRadius(12)
                         .autocapitalization(.none)
                 }
@@ -54,7 +56,7 @@ struct SignInView: View {
                 }
             }
             .frame(width: 350, height: 380)
-            .background(Color.white)
+            .background(Color.card)
             .cornerRadius(25)
         }
     }
@@ -70,36 +72,41 @@ struct SignUpView: View {
     
     var body: some View {
         ZStack {
-            Color(.lightGray).opacity(0.2).ignoresSafeArea()
+            Color.background.ignoresSafeArea()
             
             VStack {
                 VStack(spacing: 20) {
                     Text("Sign Up")
                     TextField("First name", text: $firstname)
+                        .padding()
                         .frame(width: 250, height: 50)
-                        .background(Color.white)
+                        .background(Color.background)
                         .cornerRadius(12)
                         .disableAutocorrection(true)
                     TextField("Last Name", text: $lastname)
+                        .padding()
                         .frame(width: 250, height: 50)
-                        .background(Color.white)
+                        .background(Color.background)
                         .cornerRadius(12)
                         .disableAutocorrection(true)
                     TextField("Email", text: $email)
+                        .padding()
                         .frame(width: 250, height: 50)
-                        .background(Color.white)
+                        .background(Color.background)
                         .cornerRadius(12)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                     TextField("Username", text: $username)
+                        .padding()
                         .frame(width: 250, height: 50)
-                        .background(Color.white)
+                        .background(Color.background)
                         .cornerRadius(12)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                     SecureField("Password", text: $password)
+                        .padding()
                         .frame(width: 250, height: 50)
-                        .background(Color.white)
+                        .background(Color.background)
                         .cornerRadius(12)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
@@ -116,14 +123,16 @@ struct SignUpView: View {
                 .padding()
             }
             .frame(width: 350, height: 580)
-            .background(Color.white)
+            .background(Color.card)
             .cornerRadius(25)
         }
+        //.background()
     }
 }
 
 struct AuthLoginView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView()
+            .environmentObject(UserViewModel())
     }
 }

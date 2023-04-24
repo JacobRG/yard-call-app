@@ -31,32 +31,32 @@ struct MenuView: View {
                     Text("Switch")
                 }
                 .frame(width: 110, height: 75)
-                .background(Color(.lightGray).opacity(0.2))
+                .background(Color.card2)
                 .cornerRadius(12)
-                .foregroundColor(Color.black)
+                //.foregroundColor(Color.black)
                 
                 VStack(spacing: 5) {
                     Image(systemName: "creditcard.fill")
                     Text("Wallet")
                 }
                 .frame(width: 110, height: 75)
-                .background(Color(.lightGray).opacity(0.2))
+                .background(Color.card2)
                 .cornerRadius(12)
-                .foregroundColor(Color.black)
+                //.foregroundColor(Color.black)
                 
                 VStack(spacing: 5) {
                     Image(systemName: "clock.fill")
                     Text("History")
                 }
                 .frame(width: 110, height: 75)
-                .background(Color(.lightGray).opacity(0.2))
+                .background(Color.card2)
                 .cornerRadius(12)
-                .foregroundColor(Color.black)
+                //.foregroundColor(Color.black)
             }
             
             Divider()
                 .frame(height: 10)
-                .overlay(Color(.lightGray).opacity(0.2))
+                .overlay(Color.card2)
             
             Spacer()
             
@@ -69,6 +69,7 @@ struct MenuView: View {
                     .padding()
             }
         }
+        .background(Color.background)
     }
 }
 

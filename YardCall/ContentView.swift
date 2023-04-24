@@ -16,9 +16,9 @@ struct ContentView: View {
                 if user.user?.role == "" {
                     OnboardingView()
                 } else {
-                    MainView()
+                    MainView().environmentObject(MainViewModel())
                 }
-                MainView()
+                MainView().environmentObject(MainViewModel())
             } else {
                 AuthLoginView()
             }
