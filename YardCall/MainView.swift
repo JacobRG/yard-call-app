@@ -17,9 +17,9 @@ struct MainView: View {
                     Label("Dashboard", systemImage: "house.fill")
                 }
             
-            ConversationView()
+            CreateConvoView()
                 .tabItem {
-                    Label("Messages", systemImage: "message.fill")
+                    Label("New Message", systemImage: "plus")
                 }
             
             MenuView()
@@ -27,6 +27,7 @@ struct MainView: View {
                     Label("Profile", systemImage: "person.fill")
                 }
         }
+        .accentColor(Color.black)
     }
 }
 

@@ -12,6 +12,8 @@ extension Color {
     static let background = Color("backgroundColor")
     static let card = Color("cardColor")
     static let card2 = Color("cardColor2")
+    static let perfectblue = Color("perfectblue")
+    static let lightgreen = Color("lightgreen")
 }
 
 // Extension for adding rounded corners to specific corners
